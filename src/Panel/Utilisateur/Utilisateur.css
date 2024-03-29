@@ -1,0 +1,165 @@
+
+
+.tout {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+    grid-column: 1;
+  }
+  
+  .utilisateur-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  
+  .utilisateur-card h2 {
+    margin-bottom: 8px;
+  }
+  
+  .utilisateur-card p {
+    margin-bottom: 8px;
+  }
+  
+  .utilisateur-card a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 16px;
+  }
+  
+  .utilisateur-card button {
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .utilisateur-card button:hover {
+    background-color: #0056b3;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  
+  .icon svg {
+    margin: 0 5px; 
+    font-size: 24px; 
+    cursor: pointer;
+  }
+
+  .searchBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+
+}
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
+}
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+
+.gi{
+  color: white;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #2f3640;
+}
+.ounon {
+  
+  text-align: center;
+}
+
+.ouioui {
+  background-color: red;
+  color: white;
+}
+
+.ouioui:hover {
+  background-color: darkred;
+  zoom: inherit;
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

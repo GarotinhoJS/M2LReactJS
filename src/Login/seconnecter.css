@@ -1,0 +1,87 @@
+
+
+.we{
+background-image: url("../style/img/jordz.jpg");
+background-size: cover;
+
+
+}
+
+
+.Coco{
+text-align: center;
+height: 700px;
+width: 100%;
+display: flex;
+
+
+}
+
+.Coco2{
+    
+    height: 300px;
+   width: 40%;
+   
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+    background-color: transparent;
+    border-radius: 30px;
+    box-shadow: 10px 5px 3px rgb(193, 183, 183);
+    }
+    
+
+
+.Corw{
+    color: white;
+    width: 100%;
+    
+}
+
+.Corw h1{
+    background-color: rgb(36, 36, 42);
+    color: rgb(254, 254, 255);
+   
+    margin-bottom:5%;
+    border-radius: 3px;
+    height: 12%; 
+    padding-top: 1%;
+    
+}
+
+.Ze{
+ border-radius: 4px;
+ width: 75%;
+ margin-bottom: 3%;
+background-color: rgb(20, 19, 19);
+ color: rgb(255, 255, 255);
+}
+
+.Corw h2{
+   margin-right: 55%;
+    
+}
+
+
+
+.Corw button{
+   margin-top: 5%;
+}
+
+
+
+.Corw2{
+    color: white;
+}
+
+.Corw3{
+    color: white;
+}
+
+.button{
+
+    
+
+}

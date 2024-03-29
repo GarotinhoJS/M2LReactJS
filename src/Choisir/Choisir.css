@@ -1,0 +1,27 @@
+.icon-container {
+    display: flex;
+    position: relative;
+    top: 130px;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px; 
+    text-align: center;
+  }
+  
+  .icon-item {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto; /* Cela centre l'image horizontalement */
+  }
+  
+  p {
+    margin-top: 10px; /* Ajoutez de la marge entre l'image et le texte */
+    color: #fff;
+  }
+  

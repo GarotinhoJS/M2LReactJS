@@ -1,0 +1,98 @@
+/* Styles pour le profil utilisateur inspiré d'Amazon */
+
+/* Container principal */
+.profile-container {
+  max-width: 1500px;
+  margin: 20px auto;
+ padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  height: 600px;
+}
+
+/* Titre principal */
+.profile-container h2 {
+  color: #f9f9f9;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #0a063c;
+padding-top: 10px;
+  height: 70px;
+  
+}
+
+
+
+/* Sous-titre */
+.profile-container h3 {
+  color: #f0f0f0;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: #0a063c;
+
+}
+
+/* Description */
+.profile-container p {
+  margin-bottom: 15px;
+  color: #615d5d;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-container span {
+ 
+  padding: 10px;
+  color: #010101;
+  font-size: 1em;
+}
+
+
+
+
+/* Liste des éléments */
+.profile-container ul {
+  list-style-type: none;
+  padding: 0;
+  padding: 10px;
+}
+
+/* Élément de la liste */
+.profile-container li {
+  margin-bottom: 15px;
+}
+
+/* Lien */
+.profile-container a {
+  color: #0066c0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover sur le lien */
+.profile-container a:hover {
+  color: #c45500;
+}
+
+/* Bouton */
+.profile-container .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff9900;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover sur le bouton */
+.profile-container .btn:hover {
+  background-color: #e68a00;
+}

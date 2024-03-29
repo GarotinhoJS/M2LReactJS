@@ -1,0 +1,273 @@
+.sport-card {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   height: 300px;
+   overflow: hidden;
+   position: relative;
+   top: 360px;
+  }
+  
+  
+    .sport {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+     height: 300px;
+  
+     overflow: hidden;
+     position: relative;
+    }
+    
+    .description--title {
+      font-size: 40px;
+      position: relative;
+      bottom: 50px;
+      
+    }
+    
+    
+.description--para {
+  margin: 16px 0;
+  position: relative;
+  bottom: 50px;
+  
+  color: #fff;
+}
+
+    /*.sport:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #1c1d25;
+      opacity: 0;
+      transition: all 450ms ease;
+      z-index: 2;
+      transform: translateY(100%);
+    }*/
+  
+   
+
+
+    .sport:hover {
+      transform: scale(1.07);
+      /*filter: blur(5px);*/
+    }
+
+   
+    .foot {
+      
+      width: 400px;
+      height: 250px;
+      padding: 5px;
+      margin: 5px;
+    
+      border-radius: 5px;
+      box-shadow: 1px 4px 4px 3px #CA0E0E ;
+      text-align: center;
+      background-image: url("../../style/img/messi.jpg");
+      background-size: cover;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      filter: brightness(30%);
+      transition: box-shadow 0.5s;
+      transition: filter brightness 0.9s;
+      transition: background-size 0,5s;
+   
+  }
+
+  .foot:before{
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1c1d25;
+    opacity: 0;
+    transition: all 450ms ease;
+    z-index: 2;
+    transform: translateY(100%);
+  }
+
+  .sport:hover .foot:before{
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  .sport:hover .description {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+
+  .description {
+    position: absolute;
+    top: 50%;
+   
+    width: 100%;
+    transform: translateY(100%);
+    max-width: 550px;
+    z-index: 3;
+    opacity: 0;
+    transition: transform 450ms, opacity 300ms;
+  }
+  
+
+  .foot h1{
+  margin-top: 30%;
+  color: #fff;
+  text-align: center;
+  
+
+
+  }
+
+  
+  
+  .foot:hover{
+
+   
+    box-shadow: 1px 10px 10px 10px #CA0E0E ;
+   background-size: 400px;
+    filter: brightness(100%);
+      }
+    
+
+
+    
+  .basket{
+
+    width: 400px;
+    height: 250px;
+      padding: 5px;
+      margin: 5px;
+    
+      border-radius: 5px;
+      box-shadow:  1px 4px 4px 3px #073A80;
+      text-align: center;
+      background-image: url("../../style/img/mbapp.jpg");
+      background-size: cover;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      filter: brightness(30%);
+      transition: background-size 0.5s;
+      transition: box-shadow 0.5s;
+      transition: filter brightness 0.5s;
+
+  }
+
+
+ .basket:before{
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1c1d25;
+    opacity: 0;
+    transition: all 450ms ease;
+    z-index: 2;
+    transform: translateY(100%);
+  }
+
+  .sport:hover .basket:before{
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+
+
+
+
+
+
+
+.basket h1{
+margin-top: 30%;
+color: #fff;
+text-align: center;
+
+}
+
+
+
+
+  .basket:hover{
+
+    background-size: 400px;
+    box-shadow: 1px 10px 10px 10px #073A80;
+    filter: brightness(100%);
+      }
+    
+
+  .combat{
+
+    width: 400px;
+    height: 250px;
+    padding: 5px;
+    margin: 5px;
+  
+    border-radius: 5px;
+    box-shadow: 1px 4px 4px 3px rgb(238, 46, 21);
+    text-align: center;
+    background-image: url("../../style/img/messi.jpg");
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    filter: brightness(30%);
+    transition: background-size 0.8s;
+    transition: box-shadow 0.3s;
+    transition: filter brightness 0.5s;
+
+}
+
+
+.combat h1{
+  margin-top: 30%;
+  color: #fff;
+  text-align: center;
+  
+
+}
+
+.combat:before{
+
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1c1d25;
+  opacity: 0;
+  transition: all 450ms ease;
+  z-index: 2;
+  transform: translateY(100%);
+}
+
+.sport:hover .combat:before{
+  transform: translateY(0);
+  opacity: 0.7;
+}
+
+
+
+
+
+.combat:hover{
+
+background-size: 400px;
+box-shadow: 1px 10px 10px 10px rgb(238, 46, 21);
+filter: brightness(100%);
+}
+
+
+
+span{
+  margin-left: 4px;
+  font-size: 65px;
+}
