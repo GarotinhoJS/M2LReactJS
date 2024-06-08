@@ -10,19 +10,19 @@ function Accueil() {
 
   useEffect(() => {
     // Requêtes API
-    fetch('http://localhost:8085/nombreutilisateur')// nombre utilisateur
+    fetch('http://194.164.63.21:8085/nombreutilisateur')// nombre utilisateur
       .then(response => response.json())
       .then(data => setUserData(data[0]));
 
-    fetch('http://localhost:8085/nombreformation') // nombre formation
+    fetch('http://194.164.63.21:8085/nombreformation') // nombre formation
       .then(response => response.json())
       .then(data => setFormationData(data[0]));
 
-    fetch('http://localhost:8085/nombreinscription')// nombre inscription
+    fetch('http://194.164.63.21:8085/nombreinscription')// nombre inscription
       .then(response => response.json())
       .then(data => setInscriptionData(data[0]));
 
-    fetch('http://localhost:8085/utilinscrit') // nombre utilisateur inscris
+    fetch('http://194.164.63.21:8085/utilinscrit') // nombre utilisateur inscris
       .then(response => response.json())
       .then(data => setUtilinscritData(data[0]));
   }, []);

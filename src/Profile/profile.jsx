@@ -22,7 +22,7 @@ const Profile = () => {
     // Vérification de l'existence de la fenêtre (évite les erreurs lors du rendu côté serveur)
     if (typeof window !== 'undefined' && utilisateur) {
       // Utilisation de l'ID de l'utilisateur pour récupérer les inscriptions depuis le serveur
-      fetch(`http://localhost:8081/inscriptions/${utilisateur.id}`)
+      fetch(`http://194.164.63.21:8081/inscriptions/${utilisateur.id}`)
         .then((res) => {
           // Vérification de la réponse du serveur
           if (!res.ok) {

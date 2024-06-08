@@ -21,11 +21,13 @@ const Navbar = () => {
         <ul className='stylenav'>
           <li> 
           <Link to="/">
-            Accueil {/* Correction du mot Accueil */}
+            Accueil 
             </Link>
           </li>
           <li>
-            Formations
+          <Link to="/formation">
+            Formation 
+            </Link>
           </li>
           <li>
           <Link to="/seconnecter">

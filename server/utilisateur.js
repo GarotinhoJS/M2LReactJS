@@ -11,10 +11,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'm2l', // Remplacez par le nom de votre base de données
+  host: '194.164.63.21',
+  user: 'nedy',
+  password: 'Nedved91$',
+  database: 'm2l',
 });
 
 db.connect(err => {

@@ -11,10 +11,10 @@ const uuid = require('uuid');// Génère token
 const port = 3003;
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: '194.164.63.21',
+  user: 'nedy',
+  password: 'Nedved91$',
   database: 'm2l',
-  user: 'root',
-  password: ''
 });
 
 connection.connect(function (error) {

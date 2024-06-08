@@ -10,7 +10,7 @@ const FormationDetail = () => {
 
   useEffect(() => {
     // Requêtes API
-    fetch(`http://localhost:8081/formation/${id}`)
+    fetch(`http://194.164.63.21:8082/formation/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Échec de la requête');
@@ -30,7 +30,7 @@ const FormationDetail = () => {
 
   useEffect(() => {
     // Requêtes API
-    fetch(`http://localhost:8081/listeform/${id}`) // nombre utilisateur
+    fetch(`http://194.164.63.21:8082/listeform/${id}`) // nombre utilisateur
       .then(response => response.json())
       .then(data => setListeFor(data[0]));
   }, []);

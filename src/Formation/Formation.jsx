@@ -34,7 +34,7 @@ const Formation = () => {
 
   const handlePop = async (formationId) => {
     try {
-      const response = await fetch('http://localhost:8081/inscription', {
+      const response = await fetch('http://194.164.63.21:8082/inscription', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const Formation = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      fetch('http://localhost:8081/formations')
+      fetch('http://194.164.63.21:8082/formations')
         .then((res) => {
           if (!res.ok) {
             throw new Error('Échec de la requête');
@@ -80,7 +80,7 @@ const Formation = () => {
   // Afficher le nombre d'information pour chaque formation 
   useEffect(() => {
     // Requêtes API
-    fetch('http://localhost:8081/nombreinscriptionform')
+    fetch('http://194.164.63.21:8082/nombreinscriptionform')
       .then(response => response.json())
       .then(data => setNombreFor(data.reduce((acc, cur) => ({ ...acc, [cur.id]: cur.count }), {})));
   }, []);

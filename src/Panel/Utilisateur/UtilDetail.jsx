@@ -15,7 +15,7 @@ const UtilDetail = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      fetch(`http://localhost:8085/utilisateur/${id}`)
+      fetch(`http://194.164.63.21:8085/utilisateur/${id}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error('Échec de la requête');
@@ -35,7 +35,7 @@ const UtilDetail = () => {
   }, [id]);
 
   const handleUpdate = () => {
-    fetch(`http://localhost:8085/updatutilisateur/${id}`, {
+    fetch(`http://194.164.63.21:8085/updatutilisateur/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ const RegisterForm = () => {
   // Fonction pour gérer l'enregistrement lorsque le bouton est cliqué
   const handleRegister = () => {
     // Utilisation de l'API Fetch pour envoyer une requête POST au serveur
-    fetch('http://localhost:3003/register', { // API 
+    fetch('http://194.164.63.21:3003/register', { // API 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

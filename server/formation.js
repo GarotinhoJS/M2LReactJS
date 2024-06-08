@@ -6,15 +6,15 @@ const nodemailer = require('nodemailer');
 
 
 const app = express();
-const port = 8081;
+const port = 8082;
 
 app.use(bodyParser.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
+  host: '194.164.63.21',
+  user: 'nedy',
+  password: 'Nedved91$',
   database: 'm2l',
 });
 
