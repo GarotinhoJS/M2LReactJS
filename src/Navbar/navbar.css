@@ -2,7 +2,7 @@
 .Navbar {
   position: relative;
   left: 13%;
-  top: 110px;
+  top: 20px;
    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;

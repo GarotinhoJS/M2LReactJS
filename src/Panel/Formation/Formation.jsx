@@ -37,7 +37,7 @@ const Aformation = () => {
   };
 
   const handleUpdate = (id) => {
-    axios.put(`http://194.164.63.21:8085/updateformation/${id}`, {
+    axios.put(`http://localhost:8085/updateformation/${id}`, {
       nom: updateNom,
       description: updateDescription,
     })
@@ -73,7 +73,7 @@ const Aformation = () => {
 
   const handlePop = async (formationId) => {
     try {
-      const response = await fetch(`http://194.164.63.21:8085/deleteformation/${formationId}`, {
+      const response = await fetch(`http://localhost:8085/deleteformation/${formationId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const Aformation = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      fetch('http://194.164.63.21:8085/formation')
+      fetch('http://localhost:8085/formation')
         .then((res) => {
           if (!res.ok) {
             throw new Error('Échec de la requête');

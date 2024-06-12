@@ -8,7 +8,7 @@ const formation = require('./formation');
 const admin = require('./admin');
 
 const app = express();
-const port = 3001;
+const port = 3004;
 
 // Connexion à la base de données
 const connection = mysql.createConnection({

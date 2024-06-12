@@ -11,7 +11,7 @@ const Formation = () => {
   const [recherche, setRecherche] = useState('');
   const [formationFiltre, setFormationFiltre] = useState([]);
   const [nombreFor, setNombreFor] = useState({});
-
+  const [sportSelectionne, setSportSelectionne] = useState('');
 
   const { utilisateur } = useAuth();
 
@@ -34,7 +34,7 @@ const Formation = () => {
 
   const handlePop = async (formationId) => {
     try {
-      const response = await fetch('http://194.164.63.21:8082/inscription', {
+      const response = await fetch('http://localhost:8082/inscription', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const Formation = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      fetch('http://194.164.63.21:8082/formations')
+      fetch('http://localhost:8082/formations')
         .then((res) => {
           if (!res.ok) {
             throw new Error('Échec de la requête');
@@ -80,31 +80,28 @@ const Formation = () => {
   // Afficher le nombre d'information pour chaque formation 
   useEffect(() => {
     // Requêtes API
-    fetch('http://194.164.63.21:8082/nombreinscriptionform')
+    fetch('http://localhost:8082/nombreinscriptionform')
       .then(response => response.json())
       .then(data => setNombreFor(data.reduce((acc, cur) => ({ ...acc, [cur.id]: cur.count }), {})));
   }, []);
 
-  if (isLoading) {
-    return <div>Chargement en cours...</div>;
-  }
-
-  if (error) {
-    return <div>Une erreur s'est produite lors du chargement des données.</div>;
-  }
+  const filtrerParSport = (sport) => {
+    const formationsFiltrees = data.filter((formation) => formation.sport === sport);
+    setFormationFiltre(formationsFiltrees);
+    setSportSelectionne(sport);
+  };
 
   return (
-    
     <div className='dodz'>
-      <Navbar></Navbar>
-       <div className='flege'> 
-       <div className='fleche'> </div>
-        <div className='vosformas'>  
-      <h2 className='retour'>Acceuil </h2>
-      <h2 className='poz'> </h2>
-      <h2 className='retour2'>Formations</h2>
-      <h1 className='nosForma'>Nos Formations </h1>
-      </div>
+      <Navbar />
+      <div className='flege'>
+        <div className='fleche'></div>
+        <div className='vosformas'>
+          <h2 className='retour'>Acceuil </h2>
+          <h2 className='poz'> </h2>
+          <h2 className='retour2'>Formations</h2>
+          <h1 className='nosForma'>Nos Formations </h1>
+        </div>
       </div>
       <div className="search-bar">
         <input className='tot'
@@ -114,26 +111,28 @@ const Formation = () => {
           onChange={handleRechercheChange}
         />
       </div>
-
-      {formationFiltre.length === 0 && <p>Aucune formation trouvée.</p>}
-
-      {formationFiltre.map((item) => (
-  <div className='tout' key={item.id}>
-    <div className="formation-card">
-      <div>
-        <h2>{item.nom}</h2>
-        <h2>{nombreFor[item.id]}</h2>
-        <div>
-          <Link to={`/formation/${item.id}`}>Voir les détails</Link>
-        </div>
-        <div>
-          <button onClick={() => handlePop(item.id)}>Inscrire</button>
-        </div>
+      <div className="sport-buttons">
+        <button onClick={() => filtrerParSport('foot')}>Foot</button>
+        <button onClick={() => filtrerParSport('basket')}>Basket</button>
+        {/* Ajoutez d'autres boutons pour d'autres sports si nécessaire */}
       </div>
-    </div>
-  </div>
-))}
-
+      {formationFiltre.length === 0 && <p>Aucune formation trouvée.</p>}
+      {formationFiltre.map((item) => (
+        <div className='tout' key={item.id}>
+          <div className="formation-card">
+            <div>
+              <h2>{item.nom}</h2>
+              <h2>{nombreFor[item.id]}</h2>
+              <div>
+                <Link to={`/formation/${item.id}`}>Voir les détails</Link>
+              </div>
+              <div>
+                <button onClick={() => handlePop(item.id)}>Inscrire</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

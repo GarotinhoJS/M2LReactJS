@@ -3,82 +3,93 @@ import { useAuth } from '../AuthContexte';
 import './profile.css';
 import Navbar from '../Navbar/Navbar';
 
-// Définition du composant principal
 const Profile = () => {
-  // Utilisation du hook useAuth pour obtenir les informations sur l'utilisateur connecté
-  const { utilisateur, logout } = useAuth(); // Ajout de la fonction logout
-
-  // Utilisation de useState pour gérer les inscriptions de l'utilisateur
+  const { utilisateur, logout } = useAuth();
   const [inscriptions, setInscriptions] = useState([]);
-
-  // Utilisation de useState pour gérer l'état de chargement
   const [isLoading, setIsLoading] = useState(true);
-
-  // Utilisation de useState pour gérer les erreurs
   const [error, setError] = useState(null);
 
-  // Utilisation du hook useEffect pour effectuer des actions après le rendu initial
   useEffect(() => {
-    // Vérification de l'existence de la fenêtre (évite les erreurs lors du rendu côté serveur)
-    if (typeof window !== 'undefined' && utilisateur) {
-      // Utilisation de l'ID de l'utilisateur pour récupérer les inscriptions depuis le serveur
-      fetch(`http://194.164.63.21:8081/inscriptions/${utilisateur.id}`)
+    if (utilisateur) {
+      fetch(`http://localhost:8082/inscriptions/${utilisateur.id}`)
         .then((res) => {
-          // Vérification de la réponse du serveur
           if (!res.ok) {
             throw new Error('Échec de la requête');
           }
           return res.json();
         })
         .then((data) => {
-          // Mise à jour de l'état avec les inscriptions récupérées et changement de l'état de chargement
           setInscriptions(data);
           setIsLoading(false);
         })
         .catch((err) => {
-          // Gestion des erreurs lors de la récupération des inscriptions
           console.error(err);
           setError(err);
           setIsLoading(false);
         });
     }
-  }, [utilisateur]); // La dépendance assure que cet effet est exécuté chaque fois que l'utilisateur change
+  }, [utilisateur]);
 
-  // Fonction de déconnexion
   const handleLogout = () => {
-    logout(); // Utilisation de la fonction logout fournie par useAuth
-    // Affichage de la notification
+    logout();
     alert("Vous êtes déconnecté.");
   };
 
-  return (
-<div> 
-    <Navbar> </Navbar>
+  const handleDownloadCertificate = (inscriptionId) => {
+    fetch(`http://localhost:8082/certificat/${inscriptionId}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Échec du téléchargement du certificat');
+        }
+        return res.blob();
+      })
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'certificate.pdf');
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('Erreur lors du téléchargement du certificat');
+      });
+  };
 
-    <div className="profile-container">
-      <h2>Profil Utilisateur</h2>
-      {utilisateur && (
-        <>
-          <p><span>Email</span>: {utilisateur.email}</p>
-          <div> </div>
-          <p><span>Nom</span>:{utilisateur.nom}</p>
-          <p><span>Prénom</span>:{utilisateur.prenom}</p>
-          <p><span>Date de Naissance</span>:{utilisateur.ddn}</p>
-          <p><span>Mot de passe</span>:{utilisateur.mdp}</p>
-          
-          <h3>Inscriptions:</h3>
-          <ul>
-            {inscriptions.map((inscription) => (
-              <li key={inscription.id}>
-                Formation: {inscription.formation} | Date d'inscription: {inscription.date}
-              </li>
-              
-            ))}
-          </ul>
-          <button onClick={handleLogout}>Déconnexion</button> {/* Bouton pour déclencher la déconnexion */}
-        </>
-      )}
-    </div>
+  return (
+    <div>
+      <Navbar />
+      <div className="profile-container">
+        <h2>Profil Utilisateur</h2>
+        {utilisateur && (
+          <>
+            <p><span>Email</span>: {utilisateur.email}</p>
+            <p><span>Nom</span>: {utilisateur.nom}</p>
+            <p><span>Prénom</span>: {utilisateur.prenom}</p>
+            <p><span>Date de Naissance</span>: {utilisateur.ddn}</p>
+            <p><span>Mot de passe</span>: {utilisateur.mdp}</p>
+            
+            <h3>Mes Inscriptions:</h3>
+            {isLoading ? (
+              <p>Chargement...</p>
+            ) : error ? (
+              <p>Erreur: {error.message}</p>
+            ) : (
+              <ul>
+                {inscriptions.map((inscription) => (
+                  <li key={inscription.id}>
+                    Formation: {inscription.formation} | Date d'inscription: {inscription.date ? new Date(inscription.date).toLocaleDateString() : 'Date invalide'}
+                    <button onClick={() => handleDownloadCertificate(inscription.id)}>Télécharger le certificat</button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <button onClick={handleLogout}>Déconnexion</button>
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -46,7 +46,7 @@ const Utilisateur = () => {
   };
 
   const handleupdate = (id) => {
-    axios.put(`http://194.164.63.21:8085/updatutilisateur/${id}`, {
+    axios.put(`http://localhost:8085/updatutilisateur/${id}`, {
       nom: updateNom,
       prenom: updatePrenom,
       email: updateEmail,
@@ -84,7 +84,7 @@ const Utilisateur = () => {
 
   const handlePop = async (supputilid) => {
     try {
-      const response = await fetch(`http://194.164.63.21:8085/supputilisateur/${supputilid}`, {
+      const response = await fetch(`http://localhost:8085/supputilisateur/${supputilid}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const Utilisateur = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      fetch('http://194.164.63.21:8085/utilisateur')
+      fetch('http://localhost:8085/utilisateur')
         .then((res) => {
           if (!res.ok) {
             throw new Error('Échec de la requête');

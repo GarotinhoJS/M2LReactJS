@@ -37,7 +37,7 @@ function Login() {
   const handleConnexion = async () => {
     try {
       // Utilisation de la bibliothèque axios pour envoyer une requête POST au serveur
-      const response = await axios.post('http://194.164.63.21:3002/connexion', {
+      const response = await axios.post('http://localhost:3002/connexion', {
         email,
         mot_de_passe: motDePasse,
       });
